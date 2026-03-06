@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
+#include <string>
 
 void printUsage() {
       std::cout << "usage: ecrypt [-v | --version] [-h | --help]" << std::endl;
@@ -15,17 +16,36 @@ void printUsage() {
 
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
       if (arguments[1] == "-e" || "encrypt") {
-        if (checkValidFile(arguments[2])) {
+        if (checkValidFile(arguments[2])) {          
           *filecontents = readFromFile(arguments[2]);
         }
       }
 
 }
 
+bool checkFileExtension(std::string filename) {
+  int extensionIndex = 0;
+  for (int i = 0; i < filename.length(); i++) {
+    if (filename[i] == '.')
+      extensionIndex = i;
+  }
+
+  std::string extensionType = filename.substr(extensionIndex+1);
+  
+  if (extensionType != "txt")
+    return false;
+  
+    return true;
+}
+
 bool checkValidFile(std::string filename) {
   std::ifstream file;
-  // check if file is a text file
-    // split string at '.'
+  if (!checkFileExtension(filename)) { 
+    std::cerr << "Error: File is not a text file" << std::endl;
+    return false;
+  }
+
+  file.open(filename);
 
   if (!file.is_open()) {
     std::cerr << "Error opening file: " << filename << std::endl;
@@ -33,7 +53,6 @@ bool checkValidFile(std::string filename) {
       std::cerr << strerror(errno) << std::endl;
     return false;
   }
-
 
   file.close();
   return true;
