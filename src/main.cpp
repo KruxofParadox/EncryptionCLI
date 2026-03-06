@@ -11,8 +11,9 @@ int main(int argc, char* argv[]) {
     case 2:
       std::cout << "---No current functionality---" << std::endl;
       break;
-    case 3:
-      // validate input and parse isntructions
+    default:
+      // validate input and parse instructions
+      // getUserFunction();
       break;
   }
 
