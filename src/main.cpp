@@ -16,10 +16,6 @@ int main(int argc, char* argv[]) {
       getUserFunction(argc, argv, &filecontents);
       break;
   }
-
-  if (argc == 2) {
-    filecontents = readFromFile(argv[1]);
-  }
   
   for (auto line: filecontents)
     std::cout << line << std::endl;
