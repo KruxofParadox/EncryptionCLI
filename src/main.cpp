@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
   if (argc == 2) {
     filecontents = readFromFile(argv[1]);
   }
-
+  
   for (auto line: filecontents)
     std::cout << line << std::endl;
 }
