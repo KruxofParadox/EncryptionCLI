@@ -1,5 +1,41 @@
 #include "../include/functions.h"
 #include <fstream>
+#include <iostream>
+#include <cstring>
+#include <vector>
+
+void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
+  switch (numArguments) {
+    case 1:
+      std::cout << "Print usage";
+      break;
+    case 3:
+      if (arguments[1] == "-e") {
+        if (checkFileValid(arguments[2])) {
+          *filecontents = readFromFile(arguments[2]);
+        }
+      }
+      break;
+  }
+
+
+  }
+
+bool checkFileValid(std::string filename) {
+  std::ifstream file;
+  // check if file is a text file
+    // split string at '.'
+
+  if (!file.is_open()) {
+    std::cerr << "Error opening file: " << filename << std::endl;
+    std::cerr << strerror(errno) << std::endl;
+    return false;
+  }
+
+
+  file.close();
+  return true;
+}
 
 std::vector<std::string> readFromFile(std::string filename) {
   std::vector<std::string> filedata;

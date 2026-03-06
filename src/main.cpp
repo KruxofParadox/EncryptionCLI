@@ -4,9 +4,9 @@
 int main(int argc, char* argv[]) {
   std::vector<std::string> filecontents;
 
-  if (argc == 2) {
-    filecontents = readFromFile(argv[1]);
-  }
+  
+
+  getUserFunction(argc, argv, &filecontents);
 
   for (auto line: filecontents)
     std::cout << line << std::endl;
