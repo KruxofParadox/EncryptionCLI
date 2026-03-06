@@ -4,5 +4,5 @@
 
 void printUsage();
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents);
-bool checkFileValid(std::string filename);
+bool checkValidFile(std::string filename);
 std::vector<std::string> readFromFile(std::string filename);

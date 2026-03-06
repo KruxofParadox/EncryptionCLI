@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
       break;
     default:
       // validate input and parse instructions
-      // getUserFunction();
+      getUserFunction(argc, argv, &filecontents);
       break;
   }
 
