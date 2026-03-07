@@ -6,21 +6,24 @@
 #include <string>
 
 void printUsage() {
-      std::cout << "usage: ecrypt [-v | --version] [-h | --help]" << std::endl;
-      std::cout << "              <command> [<args>]" << std::endl;
-      std::cout << std::endl;
-      std::cout << "Encrypt a file" << std::endl;
-      std::cout << "\t[-e | encrypt] <file>                  \t\tEncrypt a file with default encryption settings" << std::endl;
-      std::cout << "\t[-d | decrypt] <decryption-type> <file>\t\tDecrypt a file with the given decryption type" << std::endl;
+  std::cout << "usage: ecrypt [-v | --version] [-h | --help]" << std::endl;
+  std::cout << "              <command> [<args>]" << std::endl;
+  std::cout << std::endl;
+}
+
+void printHelp() {
+  std::cout << "Encrypt a file" << std::endl;
+  std::cout << "\t[-e | encrypt] <file>                  \t\tEncrypt a file with default encryption settings" << std::endl;
+  std::cout << "\t[-d | decrypt] <decryption-type> <file>\t\tDecrypt a file with the given decryption type" << std::endl;
+  std::cout << std::endl;
 }
 
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
-      if (arguments[1] == "-e" || "encrypt") {
-        if (checkValidFile(arguments[2])) {          
-          *filecontents = readFromFile(arguments[2]);
-        }
-      }
-
+  if (arguments[1] == "-e" || "encrypt") {
+    if (checkValidFile(arguments[2])) {          
+      *filecontents = readFromFile(arguments[2]);
+    }
+  }
 }
 
 bool checkFileExtension(std::string filename) {

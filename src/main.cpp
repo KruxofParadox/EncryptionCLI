@@ -7,6 +7,7 @@ int main(int argc, char* argv[]) {
   switch (argc) {
     case 1:
       printUsage();
+      printHelp();
       break;
     case 2:
       std::cout << "---No current functionality---" << std::endl;

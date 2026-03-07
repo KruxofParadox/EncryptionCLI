@@ -3,6 +3,7 @@
 #include <vector>
 
 void printUsage();
+void printHelp();
 bool checkForTextFile(std::string filename);
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents);
 bool checkValidFile(std::string filename);
