@@ -18,12 +18,27 @@ void printHelp() {
   std::cout << std::endl;
 }
 
+
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
-  if (arguments[1] == "-e" || "encrypt") {
+  if (arguments[1] == "-e" || arguments[1] == "encrypt") {
     if (checkValidFile(arguments[2])) {          
       *filecontents = readFromFile(arguments[2]);
     }
   }
+  else {
+    if (determineOptionOrCommand(arguments[1])) {
+      std::cerr << "unknown option: " << arguments[1] << std::endl;
+      printUsage();         
+    }
+    else
+      std::cerr << "ecrypt: \'" << arguments[1] << "\' is not an ecrypt command. See \'ecrypt --help\'" << std::endl; 
+  }
+}
+
+int determineOptionOrCommand(std::string argument) {
+  if (argument[0] == '-')
+    return 1;
+  return 0;
 }
 
 bool checkFileExtension(std::string filename) {
