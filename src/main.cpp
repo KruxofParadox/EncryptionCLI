@@ -13,7 +13,6 @@ int main(int argc, char* argv[]) {
       std::cout << "---No current functionality---" << std::endl;
       break;
     default:
-      // validate input and parse instructions
       getUserFunction(argc, argv, &filecontents);
       break;
   }

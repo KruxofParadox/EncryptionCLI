@@ -24,6 +24,7 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
   if (std::strcmp(arguments[1], "-e") || std::strcmp(arguments[1], "encrypt")) {
     if (checkValidFile(arguments[2])) {          
       *filecontents = readFromFile(arguments[2]);
+      encryptFile(filecontents);
     }
   }
   else {
@@ -87,4 +88,12 @@ std::vector<std::string> readFromFile(std::string filename) {
   }
 
   return filedata;
+}
+
+void encryptFile(std::vector<std::string>* filecontents, ENCRYPTIONTYPE encryptionType = ENCRYPTIONTYPE::caesarCipher) {
+  switch (encryptionType) {
+    case ENCRYPTIONTYPE::caesarCipher:
+      // run caesar cipher
+      break;
+  }
 }
