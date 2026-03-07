@@ -88,10 +88,13 @@ std::vector<std::string> readFromFile(std::string filename) {
   return filedata;
 }
 
-void encryptFile(std::vector<std::string>* filecontents, ENCRYPTIONTYPE encryptionType = ENCRYPTIONTYPE::caesarCipher) {
-  switch (encryptionType) {
-    case ENCRYPTIONTYPE::caesarCipher:
-      // run caesar cipher
-      break;
-  }
+void encryptFile(std::vector<std::string>* filecontents) {
+  // check for type of encryption wanted
+  // execute that type of encryption on the file
+  std::string userCipher;
+  std::cout << "> ";
+  std::getline(std::cin, userCipher);
+ 
+  // parse user input for correct cipher
+
 }
