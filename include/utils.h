@@ -2,8 +2,8 @@
 #include <string>
 #include <vector>
 
-enum class ENCRYPTIONTYPE: int {
-  caesarCipher
+std::string cipherList[] = {
+  "caesar"
 };
 
 void printUsage();
