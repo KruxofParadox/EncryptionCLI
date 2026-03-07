@@ -18,9 +18,10 @@ void printHelp() {
   std::cout << std::endl;
 }
 
-
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
-  if (arguments[1] == "-e" || arguments[1] == "encrypt") {
+  std::cout << typeid(arguments[1]).name() << std::endl;
+  std::cout << arguments[1] << std::endl;
+  if (std::strcmp(arguments[1], "-e") || std::strcmp(arguments[1], "encrypt")) {
     if (checkValidFile(arguments[2])) {          
       *filecontents = readFromFile(arguments[2]);
     }
