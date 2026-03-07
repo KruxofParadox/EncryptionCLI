@@ -1,4 +1,4 @@
-#include "../include/functions.h"
+#include "../include/utils.h"
 #include <fstream>
 #include <iostream>
 #include <cstring>
@@ -96,5 +96,5 @@ void encryptFile(std::vector<std::string>* filecontents) {
   std::getline(std::cin, userCipher);
  
   // parse user input for correct cipher
-
+  
 }
