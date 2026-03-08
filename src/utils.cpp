@@ -89,13 +89,10 @@ std::vector<std::string> readFromFile(std::string filename) {
 }
 
 void encryptFile(std::vector<std::string>* filecontents) {
-  // check for type of encryption wanted
-  // execute that type of encryption on the file
   std::string userCipher;
   std::cout << "> ";
   std::getline(std::cin, userCipher);
  
-  // parse user input for correct cipher
   switch (parseUserCipher(userCipher)) {
     case 0:
       // run caesar cipher
@@ -123,6 +120,22 @@ std::vector<std::string> splitString(std::string toSplit) {
 
 int parseUserCipher(std::string userCipher) {
   std::vector<std::string> userInputs = splitString(userCipher);
+  if (userInputs.size() > 2)
+    return -1;
+    // should be tied in to cipherList
+    if (userInputs[0] == "caesar") {
+    return 0;
+  }
+}
 
+void runCaesarCipher(std::vector<std::string>* filecontents, int key) {
+  for (auto word: *filecontents) {
+    for (auto i = 0; i < word.length(); i++) {
+      if (word[i] != ' ') {
+        word[i] += key;
+        word[i] %= 26;
+      }
+    }
+  }
 }
 

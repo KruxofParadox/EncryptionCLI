@@ -15,3 +15,5 @@ bool checkValidFile(std::string filename);
 std::vector<std::string> readFromFile(std::string filename);
 void encryptFile(std::vector<std::string>* filecontents);
 int parseUserCipher(std::string userCipher);
+std::vector<std::string> splitString(std::string toSplit);
+void runCaesarCipher(std::vector<std::string>* filecontents, int key);
