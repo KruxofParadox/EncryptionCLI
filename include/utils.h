@@ -9,7 +9,7 @@ std::string cipherList[] = {
 void printUsage();
 void printHelp();
 int determineOptionOrCommand(std::string argument);
-bool checkForTextFile(std::string filename);
+bool checkFileExtension(std::string filename);
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents);
 bool checkValidFile(std::string filename);
 std::vector<std::string> readFromFile(std::string filename);
