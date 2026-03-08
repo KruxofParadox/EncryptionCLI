@@ -96,5 +96,33 @@ void encryptFile(std::vector<std::string>* filecontents) {
   std::getline(std::cin, userCipher);
  
   // parse user input for correct cipher
+  switch (parseUserCipher(userCipher)) {
+    case 0:
+      // run caesar cipher
+      std::cout << "Ran caesar cipher" << std::endl;
+      break;
+    default: 
+      std::cerr << "Error: " << userCipher << " is not a valid cipher" << std::endl;
+  }
   
 }
+
+std::vector<std::string> splitString(std::string toSplit) {
+  std::vector<std::string> split;
+  std::string userArgument;
+  for (auto letter: toSplit) {
+    if (letter == ' ') {
+      userArgument = "";
+      split.push_back(userArgument);
+    }
+    userArgument += letter;
+  }
+
+  return split;
+}
+
+int parseUserCipher(std::string userCipher) {
+  std::vector<std::string> userInputs = splitString(userCipher);
+
+}
+

@@ -14,3 +14,4 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
 bool checkValidFile(std::string filename);
 std::vector<std::string> readFromFile(std::string filename);
 void encryptFile(std::vector<std::string>* filecontents);
+int parseUserCipher(std::string userCipher);
