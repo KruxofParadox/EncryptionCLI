@@ -1,2 +1,2 @@
 default: 
-	g++ src/main.cpp src/functions.cpp -o ecrypt
+	g++ src/main.cpp src/utils.cpp -o ecrypt
