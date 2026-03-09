@@ -130,22 +130,14 @@ int parseUserCipher(std::string userCipher) {
 }
 
 void runCaesarCipher(std::vector<std::string>* filecontents, int key) {
-  // for (auto i = 0; i < filecontents->size(); i++) {
-  //   for (auto j = 0; j < filecontents->at(i).size(); j++) {
-  //     if ((*filecontents)[i][j] != ' ') {
-  //       (*filecontents)[i][j] += key;
-  //       (*filecontents)[i][j] %= 26;
-  //     }
-  //   }
-  // }
-
-  for (auto i = 0; i < (*filecontents)[0].size(); i++) {
-    if ((*filecontents)[0][i] != ' ') {
-      int charAsInt = (*filecontents)[0][i];
-      charAsInt += key;
-      charAsInt %= 122;
-      charAsInt += 96;
-      (*filecontents)[0][i] = charAsInt;
+  for (auto i = 0; i < filecontents->size(); i++) {
+    for (auto j = 0; j < filecontents->at(i).size(); j++) {
+      if ((*filecontents)[i][j] != ' ') {
+        (*filecontents)[i][j] -= 'a';
+        (*filecontents)[i][j] += key;
+        (*filecontents)[i][j] %= 26;
+        (*filecontents)[i][j] += 'a';
+      }
     }
   }
 }
