@@ -94,7 +94,7 @@ void encryptFile(std::vector<std::string>* filecontents) {
   std::getline(std::cin, userCipher);
  
   switch (parseUserCipher(userCipher)) {
-    case 0:
+    case 1:
       // run caesar cipher
       std::cout << "Ran caesar cipher" << std::endl;
       break;
@@ -123,18 +123,29 @@ int parseUserCipher(std::string userCipher) {
   if (userInputs.size() > 2)
     return -1;
     // should be tied in to cipherList
-    if (userInputs[0] == "caesar") {
-    return 0;
-  }
+  if (userInputs[0] == "caesar")
+    return 1;
+
+  return 0;
 }
 
 void runCaesarCipher(std::vector<std::string>* filecontents, int key) {
-  for (auto word: *filecontents) {
-    for (auto i = 0; i < word.length(); i++) {
-      if (word[i] != ' ') {
-        word[i] += key;
-        word[i] %= 26;
-      }
+  // for (auto i = 0; i < filecontents->size(); i++) {
+  //   for (auto j = 0; j < filecontents->at(i).size(); j++) {
+  //     if ((*filecontents)[i][j] != ' ') {
+  //       (*filecontents)[i][j] += key;
+  //       (*filecontents)[i][j] %= 26;
+  //     }
+  //   }
+  // }
+
+  for (auto i = 0; i < (*filecontents)[0].size(); i++) {
+    if ((*filecontents)[0][i] != ' ') {
+      int charAsInt = (*filecontents)[0][i];
+      charAsInt += key;
+      charAsInt %= 122;
+      charAsInt += 96;
+      (*filecontents)[0][i] = charAsInt;
     }
   }
 }

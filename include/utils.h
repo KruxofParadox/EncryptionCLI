@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 
-std::string cipherList[] = {
-  "caesar"
-};
+// std::string cipherList[] = {
+//   "caesar"
+// };
 
 void printUsage();
 void printHelp();
