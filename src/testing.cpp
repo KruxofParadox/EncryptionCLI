@@ -4,7 +4,7 @@
 #include <string>
 
 int main() {
-  std::vector<std::string> word = {"hello world"};
+  std::vector<std::string> word = {"hello world", "this is a test"};
   int key = 3;
 
   runCaesarCipher(&word, key);
