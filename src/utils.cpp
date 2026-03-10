@@ -99,7 +99,7 @@ void encryptFile(std::vector<std::string>* filecontents) {
       std::cout << "Ran caesar cipher" << std::endl;
       break;
     default: 
-      std::cerr << "Error: " << userCipher << " is not a valid cipher" << std::endl;
+      std::cerr << "Error: \'" << userCipher << "\' is not a valid cipher" << std::endl;
   }
   
 }
@@ -123,8 +123,12 @@ int parseUserCipher(std::string userCipher) {
   if (userInputs.size() > 2)
     return -1;
     // should be tied in to cipherList
+
+  // std::cout << "\'" << userInputs[0] << "\'" << std::endl;
+
   if (userInputs[0] == "caesar")
     return 1;
+
 
   return 0;
 }

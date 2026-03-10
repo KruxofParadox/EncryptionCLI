@@ -17,6 +17,9 @@ int main(int argc, char* argv[]) {
       break;
   }
   
+  int userContinue;
+  std::cout << "Press \'Enter\' to continue: ";
+  std::cin >> userContinue;
   for (auto line: filecontents)
     std::cout << line << std::endl;
 }
