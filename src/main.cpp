@@ -1,4 +1,5 @@
 #include "../include/utils.h"
+#include <string>
 #include <iostream>
 
 int main(int argc, char* argv[]) {
@@ -17,9 +18,9 @@ int main(int argc, char* argv[]) {
       break;
   }
   
-  int userContinue;
+  std::string userContinue;
   std::cout << "Press \'Enter\' to continue: ";
-  std::cin >> userContinue;
+  std::getline(std::cin, userContinue);
   for (auto line: filecontents)
     std::cout << line << std::endl;
 }

@@ -6,6 +6,8 @@
 //   "caesar"
 // };
 
+
+
 void printUsage();
 void printHelp();
 int determineOptionOrCommand(std::string argument);

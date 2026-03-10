@@ -7,9 +7,6 @@ void testRunCaesarCipher();
 void testSplitString();
 
 int main() {
-
-  testSplitString();
-
   
 }
 

@@ -95,7 +95,7 @@ void encryptFile(std::vector<std::string>* filecontents) {
  
   switch (parseUserCipher(userCipher)) {
     case 1:
-      // run caesar cipher
+      runCaesarCipher(filecontents, 3);
       std::cout << "Ran caesar cipher" << std::endl;
       break;
     default: 
@@ -109,8 +109,8 @@ std::vector<std::string> splitString(std::string toSplit) {
   std::string userArgument;
   for (auto letter: toSplit) {
     if (letter == ' ') {
-      userArgument = "";
       split.push_back(userArgument);
+      userArgument = "";
     }
     userArgument += letter;
   }
@@ -123,8 +123,6 @@ int parseUserCipher(std::string userCipher) {
   if (userInputs.size() > 2)
     return -1;
     // should be tied in to cipherList
-
-  // std::cout << "\'" << userInputs[0] << "\'" << std::endl;
 
   if (userInputs[0] == "caesar")
     return 1;
