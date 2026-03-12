@@ -6,15 +6,18 @@ int main(int argc, char* argv[]) {
   std::vector<std::string> filecontents;
 
   switch (argc) {
-    case 1:
+    case 2:
+      std::cout << "---No current functionality---" << std::endl;
       printUsage();
       printHelp();
       break;
-    case 2:
-      std::cout << "---No current functionality---" << std::endl;
-      break;
-    default:
+    case 3:
       getUserFunction(argc, argv, &filecontents);
+      break;
+    default: 
+      case 1:
+      printUsage();
+      printHelp();
       break;
   }
   
