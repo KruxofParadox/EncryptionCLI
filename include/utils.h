@@ -13,3 +13,4 @@ void encryptFile(std::vector<std::string>* filecontents);
 int parseUserCipher(std::string userCipher);
 std::vector<std::string> splitString(std::string toSplit);
 void runCaesarCipher(std::vector<std::string>* filecontents, int key);
+int add(int a, int b);

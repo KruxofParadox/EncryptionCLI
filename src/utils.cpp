@@ -144,3 +144,6 @@ void runCaesarCipher(std::vector<std::string>* filecontents, int key) {
   }
 }
 
+int add(int a, int b) {
+  return a + b;
+}
