@@ -1,4 +1,0 @@
-C:/Users/tspen/VS Code/Cpp/EncryptionCLI/build/CMakeFiles/ecrypt.dir
-C:/Users/tspen/VS Code/Cpp/EncryptionCLI/build/CMakeFiles/utils.dir
-C:/Users/tspen/VS Code/Cpp/EncryptionCLI/build/CMakeFiles/edit_cache.dir
-C:/Users/tspen/VS Code/Cpp/EncryptionCLI/build/CMakeFiles/rebuild_cache.dir
