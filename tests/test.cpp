@@ -22,3 +22,6 @@ TEST_CASE("Caesar Cipher") {
   REQUIRE(test2 == std::vector<std::string>{"vguv vguv vguv"});
 }
 
+TEST_CASE("Parse user cipher") {
+  
+}
