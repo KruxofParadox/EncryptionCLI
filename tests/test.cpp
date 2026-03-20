@@ -23,5 +23,7 @@ TEST_CASE("Caesar Cipher") {
 }
 
 TEST_CASE("Parse user cipher") {
-  
+  REQUIRE(parseUserCipher("caesar 1") == 1);
+  REQUIRE(parseUserCipher("caesar 1 1") == -1);
+  REQUIRE(parseUserCipher("blah 1") == 0);
 }
