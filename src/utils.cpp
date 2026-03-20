@@ -4,6 +4,7 @@
 #include <cstring>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 void printUsage() {
   std::cout << "usage: ecrypt [-v | --version] [-h | --help]" << std::endl;
@@ -104,22 +105,27 @@ void encryptFile(std::vector<std::string>* filecontents) {
   
 }
 
-std::vector<std::string> splitString(std::string toSplit) {
+std::vector<std::string> splitString(std::string toSplit, char delimiter) {
   std::vector<std::string> split;
   std::string userArgument;
   for (auto letter: toSplit) {
-    if (letter == ' ') {
+    if (letter == delimiter) {
       split.push_back(userArgument);
       userArgument = "";
     }
-    userArgument += letter;
+    else 
+      userArgument += letter;
   }
+
+  // userArgument = userArgument.substr(1);
+  split.push_back(userArgument);
+  std::erase(split, "");
 
   return split;
 }
 
 int parseUserCipher(std::string userCipher) {
-  std::vector<std::string> userInputs = splitString(userCipher);
+  std::vector<std::string> userInputs = splitString(userCipher, ' ');
   if (userInputs.size() > 2)
     return -1;
     // should be tied in to cipherList
