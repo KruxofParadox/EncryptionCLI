@@ -93,16 +93,12 @@ void encryptFile(std::vector<std::string>* filecontents) {
   std::string userCipher;
   std::cout << "> ";
   std::getline(std::cin, userCipher);
- 
-  switch (parseUserCipher(userCipher)) {
-    case 1:
-      runCaesarCipher(filecontents, 3);
-      std::cout << "Ran caesar cipher" << std::endl;
-      break;
-    default: 
-      std::cerr << "Error: \'" << userCipher << "\' is not a valid cipher" << std::endl;
-  }
-  
+  auto userInputs = splitString(userCipher, ' ');
+
+  if (userInputs[0] == "caesar")
+    runCaesarCipher(filecontents, std::stoi(userInputs[1]));
+  else 
+    std::cerr << "Error: \'" << userCipher << "\' is not a valid cipher" << std::endl;
 }
 
 std::vector<std::string> splitString(std::string toSplit, char delimiter) {
@@ -122,19 +118,6 @@ std::vector<std::string> splitString(std::string toSplit, char delimiter) {
   std::erase(split, "");
 
   return split;
-}
-
-int parseUserCipher(std::string userCipher) {
-  std::vector<std::string> userInputs = splitString(userCipher, ' ');
-  if (userInputs.size() > 2)
-    return -1;
-    // should be tied in to cipherList
-
-  if (userInputs[0] == "caesar")
-    return 1;
-
-
-  return 0;
 }
 
 void runCaesarCipher(std::vector<std::string>* filecontents, int key) {

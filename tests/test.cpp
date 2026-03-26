@@ -21,9 +21,3 @@ TEST_CASE("Caesar Cipher") {
   REQUIRE(test1 == std::vector<std::string>{"bbbb"});
   REQUIRE(test2 == std::vector<std::string>{"vguv vguv vguv"});
 }
-
-TEST_CASE("Parse user cipher") {
-  REQUIRE(parseUserCipher("caesar 1") == 1);
-  REQUIRE(parseUserCipher("caesar 1 1") == -1);
-  REQUIRE(parseUserCipher("blah 1") == 0);
-}
