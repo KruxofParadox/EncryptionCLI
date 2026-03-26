@@ -24,6 +24,7 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
     if (checkValidFile(arguments[2])) {          
       *filecontents = readFromFile(arguments[2]);
       encryptFile(filecontents);
+      writeToFile(filecontents);
     }
   }
   else {
@@ -34,6 +35,10 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
     else
       std::cerr << "ecrypt: \'" << arguments[1] << "\' is not an ecrypt command. See \'ecrypt --help\'" << std::endl; 
   }
+}
+
+void writeToFile(std::vector<std::string>* filecontents) {
+  // how to write to a file using ofstream c++
 }
 
 int determineOptionOrCommand(std::string argument) {
