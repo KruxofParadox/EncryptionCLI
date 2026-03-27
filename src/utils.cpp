@@ -24,6 +24,7 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
     if (checkValidFile(arguments[2])) {          
       *filecontents = readFromFile(arguments[2]);
       encryptFile(filecontents);
+      writeToFile(filecontents, arguments[2]);
     }
   }
   else {
@@ -34,6 +35,18 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
     else
       std::cerr << "ecrypt: \'" << arguments[1] << "\' is not an ecrypt command. See \'ecrypt --help\'" << std::endl; 
   }
+}
+
+void writeToFile(std::vector<std::string>* filecontents, std::string filename) {
+  auto splitFilename = splitString(filename, '/');
+  auto updatedFilename = splitFilename[0] + "/encrypted_" + splitFilename[1];
+
+  std::ofstream encryptedFile(updatedFilename);
+
+  for (auto word: *filecontents)
+    encryptedFile << word;
+
+  encryptedFile.close();
 }
 
 int determineOptionOrCommand(std::string argument) {
@@ -113,7 +126,6 @@ std::vector<std::string> splitString(std::string toSplit, char delimiter) {
       userArgument += letter;
   }
 
-  // userArgument = userArgument.substr(1);
   split.push_back(userArgument);
   std::erase(split, "");
 
