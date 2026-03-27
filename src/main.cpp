@@ -20,10 +20,4 @@ int main(int argc, char* argv[]) {
       printHelp();
       break;
   }
-  
-  // std::string userContinue;
-  // std::cout << "Press \'Enter\' to continue: ";
-  // std::getline(std::cin, userContinue);
-  // for (auto line: filecontents)
-  //   std::cout << line << std::endl;
 }
