@@ -38,8 +38,10 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
 }
 
 void writeToFile(std::vector<std::string>* filecontents, std::string filename) {
-  std::ofstream encryptedFile("../encrypted_" + filename);
-  std::cout << filename << std::endl;
+  auto splitFilename = splitString(filename, '/');
+  auto updatedFilename = splitFilename[0] + "/encrypted_" + splitFilename[1];
+
+  std::ofstream encryptedFile(updatedFilename);
 
   for (auto word: *filecontents)
     encryptedFile << word;
@@ -124,7 +126,6 @@ std::vector<std::string> splitString(std::string toSplit, char delimiter) {
       userArgument += letter;
   }
 
-  // userArgument = userArgument.substr(1);
   split.push_back(userArgument);
   std::erase(split, "");
 
