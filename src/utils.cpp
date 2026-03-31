@@ -20,12 +20,12 @@ void printHelp() {
 }
 
 void printError(std::string argument) {
-      if (determineOptionOrCommand(argument)) {
-      std::cerr << "unknown option: " << argument << std::endl;
-      printUsage();         
-    }
-    else
-      std::cerr << "ecrypt: \'" << argument << "\' is not an ecrypt command. See \'ecrypt --help\'" << std::endl; 
+  if (determineOptionOrCommand(argument)) {
+    std::cerr << "unknown option: " << argument << std::endl;
+    printUsage();         
+  }
+  else
+    std::cerr << "ecrypt: \'" << argument << "\' is not an ecrypt command. See \'ecrypt --help\'" << std::endl; 
 }
 
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
