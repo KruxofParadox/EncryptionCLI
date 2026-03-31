@@ -4,9 +4,11 @@
 
 void printUsage();
 void printHelp();
+void printError(std::string argument);
 int determineOptionOrCommand(std::string argument);
 bool checkFileExtension(std::string filename);
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents);
+void getHelpFunction(char* arguments[]);
 void writeToFile(std::vector<std::string>* filecontents, std::string filename);
 bool checkValidFile(std::string filename);
 std::vector<std::string> readFromFile(std::string filename);
