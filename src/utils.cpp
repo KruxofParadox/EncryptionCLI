@@ -29,7 +29,7 @@ void printError(std::string argument) {
 }
 
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
-  if (std::strcmp(arguments[1], "-e") || std::strcmp(arguments[1], "encrypt")) {
+  if (std::strcmp(arguments[1], "-e") == 0 || std::strcmp(arguments[1], "encrypt") == 0) {  
     if (checkValidFile(arguments[2])) {          
       *filecontents = readFromFile(arguments[2]);
       encryptFile(filecontents);
@@ -41,7 +41,7 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
 }
 
 void getHelpFunction(char* arguments[]) {
-  if (std::strcmp(arguments[1], "-c") || std::strcmp(arguments[1], "cipher")) {
+  if (std::strcmp(arguments[1], "-c") == 0 || std::strcmp(arguments[1], "cipher") == 0) {
     if (checkValidFile(arguments[2])) {          
       
     }}
