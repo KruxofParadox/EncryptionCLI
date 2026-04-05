@@ -28,8 +28,23 @@ void printError(std::string argument) {
     std::cerr << "ecrypt: \'" << argument << "\' is not an ecrypt command. See \'ecrypt --help\'" << std::endl; 
 }
 
-void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
-  if (std::strcmp(arguments[1], "-e") == 0 || std::strcmp(arguments[1], "encrypt") == 0) {  
+void getFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
+  switch(numArguments) {
+    case 2:
+      getFunctionInfo(arguments);
+      break;
+    case 3:
+      useFunction(arguments, filecontents);
+      break;
+    default: 
+      printUsage();
+      printHelp();
+      break;
+  }
+}  
+
+void useFunction(char* arguments[], std::vector<std::string>* filecontents) { 
+  if (arguments[1] == std::string("-e") || arguments[1] == std::string("encrypt")) {  
     if (checkValidFile(arguments[2])) {          
       *filecontents = readFromFile(arguments[2]);
       encryptFile(filecontents);
@@ -40,11 +55,10 @@ void getUserFunction(int numArguments, char* arguments[], std::vector<std::strin
     printError(arguments[1]); 
 }
 
-void getHelpFunction(char* arguments[]) {
-  if (std::strcmp(arguments[1], "-c") == 0 || std::strcmp(arguments[1], "cipher") == 0) {
-    if (checkValidFile(arguments[2])) {          
-      
-    }}
+void getFunctionInfo(char* arguments[]) {
+  if (arguments[1] == std::string("-c") || arguments[1] == std::string("cipher")) {
+    
+  }
 }
 
 void writeToFile(std::vector<std::string>* filecontents, std::string filename) {
