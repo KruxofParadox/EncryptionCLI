@@ -19,22 +19,32 @@ void printHelp() {
   std::cout << std::endl;
 }
 
+void printError(std::string argument) {
+  if (determineOptionOrCommand(argument)) {
+    std::cerr << "unknown option: " << argument << std::endl;
+    printUsage();         
+  }
+  else
+    std::cerr << "ecrypt: \'" << argument << "\' is not an ecrypt command. See \'ecrypt --help\'" << std::endl; 
+}
+
 void getUserFunction(int numArguments, char* arguments[], std::vector<std::string>* filecontents) {
-  if (std::strcmp(arguments[1], "-e") || std::strcmp(arguments[1], "encrypt")) {
+  if (std::strcmp(arguments[1], "-e") == 0 || std::strcmp(arguments[1], "encrypt") == 0) {  
     if (checkValidFile(arguments[2])) {          
       *filecontents = readFromFile(arguments[2]);
       encryptFile(filecontents);
       writeToFile(filecontents, arguments[2]);
     }
   }
-  else {
-    if (determineOptionOrCommand(arguments[1])) {
-      std::cerr << "unknown option: " << arguments[1] << std::endl;
-      printUsage();         
-    }
-    else
-      std::cerr << "ecrypt: \'" << arguments[1] << "\' is not an ecrypt command. See \'ecrypt --help\'" << std::endl; 
-  }
+  else
+    printError(arguments[1]); 
+}
+
+void getHelpFunction(char* arguments[]) {
+  if (std::strcmp(arguments[1], "-c") == 0 || std::strcmp(arguments[1], "cipher") == 0) {
+    if (checkValidFile(arguments[2])) {          
+      
+    }}
 }
 
 void writeToFile(std::vector<std::string>* filecontents, std::string filename) {
